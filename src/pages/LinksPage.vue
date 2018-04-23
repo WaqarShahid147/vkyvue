@@ -7,9 +7,11 @@
       </tr>
       <tr v-for="q in allLinks" :key="q.id" class="links">
         <th class="th">{{ q.id }}</th>
+        <th>
           <a v-bind:href="''">
             {{ q.link }}
           </a>
+        </th>
       </tr>
     </table>
   </div>

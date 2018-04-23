@@ -8,10 +8,18 @@
         <th class="th">EXPERIENCE</th>
       </tr>
       <tr v-for="p in allEmployees" :key="p.id" class="employee">
-        <th class="th">{{ key }}</th>
-        <th class="th">{{ p.name }}</th>
-        <th class="th">{{ p.designation }}</th>
-        <th class="th">{{ p.experience }}</th>
+          <th>
+            <router-link :to="{name: 'profile', params: {id: p.id}}">{{ p.id }}</router-link>
+          </th>
+          <th class="th">
+            {{ p.name }}
+          </th>
+          <th class="th">
+            {{ p.designation }}
+          </th>
+          <th class="th">
+            {{ p.experience }}
+          </th>
       </tr>
     </table>
   </div>
