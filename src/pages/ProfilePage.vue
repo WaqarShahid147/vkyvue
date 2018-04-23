@@ -3,8 +3,12 @@
     <div class="profile-title">
       Links associated to {{ profile.name }}, ({{ profile.designation }})
     </div>
-    <div class="links">
-      {{ profile.designation }}
+    <div v-for="linkId in profile.link_id">
+      <div v-for="allLinkId in allLinks">
+        <div v-if="allLinkId.id === linkId" class="links">
+          {{ allLinkId.link }}
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -14,10 +18,12 @@
   export default {
     mounted () {
       this.getAllEmployees()
+      this.getAllLinks()
     },
     computed: {
       ...mapGetters([
-        'allEmployees'
+        'allEmployees',
+        'allLinks'
       ]),
       profile () {
         let id = parseInt(this.$route.params.id)
@@ -26,7 +32,8 @@
     },
     methods: {
       ...mapActions([
-        'getAllEmployees'
+        'getAllEmployees',
+        'getAllLinks'
       ])
     }
   }
@@ -36,14 +43,13 @@
 
 .profile-title {
   padding-top: 20px;
-  margin: 0 auto;
   font-size: 26px;
 }
 
 .links {
-  float: left;
   font-size: 20px;
   margin-top: 15px;
+  width: 80%;
 }
 
 </style>
