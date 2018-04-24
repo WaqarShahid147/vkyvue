@@ -7,11 +7,14 @@
       <div v-for="allLinkId in allLinks">
         <div v-if="allLinkId.id === linkId" class="links">
           {{ allLinkId.link }}
-          <input
-            type="checkbox"
-            true-value="yes"
-            false-value="no"
-          >
+          <button class="add-button" 
+            @click="getLinksRead(profile.id, linkId)">
+            DONE
+          </button>
+          {{ getLinksRead (profile.id, linkId) }}
+          <!-- Profile ID: {{ profile.id }}
+          Link ID: {{ linkId }}
+          Links ID: {{ allLinkId.id }} -->
         </div>
       </div>
     </div>
@@ -38,7 +41,8 @@
     methods: {
       ...mapActions([
         'getAllEmployees',
-        'getAllLinks'
+        'getAllLinks',
+        'getLinksRead'
       ])
     }
   }
@@ -55,6 +59,12 @@
   font-size: 20px;
   margin-top: 15px;
   width: 80%;
+}
+
+.add-button {
+  float: right;
+  width: 100px;
+  height: 2px;
 }
 
 </style>

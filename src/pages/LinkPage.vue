@@ -7,11 +7,6 @@
       <div v-for="allProfileId in allEmployees">
         <div v-if="allProfileId.id === profileId" class="links">
           {{ allProfileId.name }}
-          <input
-            type="checkbox"
-            true-value="yes"
-            false-value="no"
-          >
         </div>
       </div>
     </div>
