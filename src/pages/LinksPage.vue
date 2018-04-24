@@ -6,7 +6,9 @@
         <th class="th">LINKS</th>
       </tr>
       <tr v-for="q in allLinks" :key="q.id" class="links">
-        <th class="th">{{ q.id }}</th>
+        <th class="th">
+          <router-link :to="{name: 'link', params: {id: q.id}}">{{ q.id }}</router-link>
+        </th>
         <th>
           <a v-bind:href="''">
             {{ q.link }}
